@@ -9,7 +9,6 @@ import { Colxx } from 'components/common/CustomBootstrap';
 const ImageCardList = ({ items }) => {
   return (
     <Row>
-      {console.log({ items })}
       {items &&
         items.map((product) => {
           return (
@@ -18,7 +17,7 @@ const ImageCardList = ({ items }) => {
                 <Colxx xxs="12">
                   <Card className="d-flex flex-row mb-3">
                     <NavLink
-                      to={`/app/pages/profile/portfolio?user=${product.uid}`}
+                      to={`/app/users/details?user=${product.uid}`}
                       location={{}}
                       className="d-flex"
                     >
@@ -40,7 +39,7 @@ const ImageCardList = ({ items }) => {
                     <div className="pl-2 d-flex flex-grow-1 min-width-zero">
                       <div className="card-body align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero align-items-lg-center">
                         <NavLink
-                          to={`/app/pages/profile/portfolio?user=${product.uid}`}
+                          to={`/app/users/details?user=${product.uid}`}
                           location={{}}
                           className="w-40 w-sm-100"
                         >

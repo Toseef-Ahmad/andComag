@@ -96,7 +96,7 @@ const DashboardContent = ({ intl, match }) => {
 
   return (
     <>
-      <h1>content component</h1>
+
       <Row>
         <Colxx xxs="12">
           <Breadcrumb heading="menu.content" match={match} />
@@ -105,7 +105,7 @@ const DashboardContent = ({ intl, match }) => {
       </Row>
       <Row>
         <Colxx lg="12" xl="12">
-          {/* <h2>DashboardContent Magazines:</h2> */}
+      
           {magazines.length > 0 && (
             <SortableStaticsRow
               messages={messages}

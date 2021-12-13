@@ -198,9 +198,10 @@ const createObj = (address, arr, numberOrString = false) => {
   for (let i = 0; i < arr.length; i++) {
     tempObj = arr[i];
     if (!numberOrString) {
+
       obj[Object.byString(tempObj, address).toUpperCase() + i] = { ...arr[i] }
     } else {
-      obj[Object.byString(tempObj, address) + ' ' + i] = { ...arr[i] }
+      obj[`${Object.byString(tempObj, address)  } ${  i}`] = { ...arr[i] }
     }
   }
   // console.log(obj, ' sorted arr')
@@ -251,6 +252,7 @@ const createObj = (address, arr, numberOrString = false) => {
 export const sortTable = (sortBy, arr) => {
   console.log(arr, '   nursing insire sortTable function')
   let temObj = {};
+  // eslint-disable-next-line default-case
   switch (sortBy) {
     case 'groupId':
       temObj = createObj('group.groupCode', arr);
@@ -259,11 +261,15 @@ export const sortTable = (sortBy, arr) => {
       temObj = createObj('group.name', arr);
       break;
     case 'creationDate':
-      temObj = createObj('group.createdAt', arr);
+      if (arr[0].group.createAt) {
+        temObj = createObj('group.createdAt', arr);
+      } else {
+        temObj = createObj('createdAt', arr);
+      }
+
       break;
     case 'accountType':
       return arr;
-      break;
     case 'userCount':
       temObj = createObj('group.groupUsers', arr, true);
       break;

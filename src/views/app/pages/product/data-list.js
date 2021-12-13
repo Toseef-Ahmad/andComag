@@ -74,7 +74,7 @@ const DataListPages = ({ match }) => {
             response.push(info);
           }
         });
-        console.log(totalPage);
+        
         // const result = dataRes.map((item)=> {return item.info})
         setItems(response);
         setSearchItems(response);
@@ -197,7 +197,7 @@ const DataListPages = ({ match }) => {
           role: elem.role,
         };
       });
-      console.log(data, 'hi this uis bbbbbbbbbbbb');
+
       setDataToDownload(data);
       setTimeout(() => {
         csvLink.link.click();
@@ -232,7 +232,7 @@ const DataListPages = ({ match }) => {
     <div className="loading" />
   ) : (
     <>
-      <h1>data-list component data is fetching from database</h1>
+
       <div className="disable-text-selection">
         <ListPageHeading
           heading="menu.data-list"
@@ -283,9 +283,9 @@ const DataListPages = ({ match }) => {
           }}
         >
           <span
-            className="simple-icon-arrow-down-circle"
-            style={{ fontSize: '25px' }}
-          ></span>
+    className="simple-icon-arrow-down-circle"
+    style={{fontSize: '25px'}}
+    />
         </div>
         <CSVLink
           data={dataToDownload}

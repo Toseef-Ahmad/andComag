@@ -184,7 +184,7 @@ body {
 .logo-single {
   width: 110px;
   height: 35px;
-  background: url("../logos/black.svg") no-repeat;
+  background: url("../logos/white.svg") no-repeat;
   background-position: center center;
   display: inline-block;
   margin-bottom: 60px; }
@@ -1523,7 +1523,7 @@ button {
 .logo {
   width: 110px;
   height: 35px;
-  background: url("../logos/black.svg") no-repeat;
+  background: url("../logos/white.svg") no-repeat;
   background-position: center center;
   margin: 0 auto; }
   @media (max-width: 767px) {
@@ -6733,7 +6733,7 @@ footer.page-footer {
       display: inline-block;
       width: 100px;
       height: 30px;
-      background: url("../logos/black.svg");
+      background: url("../logos/white.svg");
       background-repeat: no-repeat; }
   .landing-page .main-container {
     overflow: hidden; }
@@ -6832,7 +6832,7 @@ footer.page-footer {
       .landing-page .landing-page-nav .navbar-logo .dark {
         width: 120px;
         height: 40px;
-        background: url("../logos/black.svg");
+        background: url("../logos/white.svg");
         background-repeat: no-repeat;
         display: none; }
     .landing-page .landing-page-nav .mobile-menu-button {

@@ -229,7 +229,6 @@ const KnowledgeBase = ({ match }) => {
 
   return (
     <>
-      <h1>Knowladge-base component</h1>
       <Row>
         <Colxx xxs="12">
           <Breadcrumb heading="menu.faq" match={match} />
@@ -343,8 +342,11 @@ const KnowledgeBase = ({ match }) => {
                 </thead>
                 <tbody>
                   {searchValue.map((item, index) => {
+                    {console.log(item, ' users home users')}
                     // sortTable('groupName', searchValue);
+                    // eslint-disable-next-line no-lone-blocks
                     {
+                      // eslint-disable-next-line no-unused-expressions
                       isLoadedTable && calAverage(searchValue) && setIsLoadedTable(false)
                     }
                     // { console.log(item) }
@@ -354,14 +356,14 @@ const KnowledgeBase = ({ match }) => {
                         {/* <button onClick={() => setSearchValue(sortTable('name', searchValue))}>Sort table by group name</button> */}
                         <td>
                           <Link
-                            to={`/app/pages/product/details?group=${item.group.groupCode}`}
+                            to={`/app/groups/details?group=${item.group.groupCode}`}
                           >
                             {item.group.groupCode}
                           </Link>
                         </td>
                         <td>
                           <Link
-                            to={`/app/pages/product/details?group=${item.group.groupCode}`}
+                            to={`/app/groups/details?group=${item.group.groupCode}`}
                           >
                             {item.group.name}
                           </Link>
@@ -517,14 +519,14 @@ const KnowledgeBase = ({ match }) => {
                         <th name="groupName" style={{ cursor: 'pointer' }} onClick={(e) => handleSortTable('groupName', e, 'nursing')}>Group Name</th>
                         <th name="creationDate" style={{ cursor: 'pointer' }} onClick={(e) => handleSortTable('creationDate', e, 'nursing')}>creation date</th>
                         <th name="accountType" style={{ cursor: 'pointer' }} onClick={(e) => handleSortTable('accountType', e, 'nursing')}>Account Type</th>
-                        <th name="usersCount" style={{ cursor: 'pointer' }} onClick={(e) => handleSortTable('userCount', e, 'nursing')}>users count</th>
+                        {/*<th name="usersCount" style={{ cursor: 'pointer' }} onClick={(e) => handleSortTable('userCount', e, 'nursing')}>users count</th>*/}
                         <th name="status" style={{ cursor: 'pointer' }} onClick={(e) => handleSortTable('status', e, 'nursing')}>Status</th>
                         <th onClick={() => removeDuplication(searchValue)}>Average</th>
                       </tr>
                     </thead>
                     <tbody>
                       {searchNursingValue.map((item, index) => {
-
+                        {console.log(item, ' nursing home users')}
                         return (
                           <tr key={index}>
                             <th scope="row">{index}</th>
@@ -536,7 +538,8 @@ const KnowledgeBase = ({ match }) => {
                               </Moment>
                             </td>
                             <td>type</td>
-                            <td>{item?.group?.groupUsers}</td>
+                            {/*<td>{item?.group?.groupUsers}</td>*/}
+
                             <td>
                               {item?.group?.subscriptionStatus
                                 ? 'Active'

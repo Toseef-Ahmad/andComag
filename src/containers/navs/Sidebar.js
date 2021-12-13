@@ -366,7 +366,6 @@ class Sidebar extends Component {
               options={{ suppressScrollX: true, wheelPropagation: false }}
             >
               <Nav vertical className="list-unstyled">
-              <p>From Sidebar Component</p>
                 {menuItems &&
                   this.filteredList(menuItems).map((item) => {
                    
@@ -417,7 +416,7 @@ class Sidebar extends Component {
             >
               {menuItems &&
                 this.filteredList(menuItems).map((item) => {
-                  
+                 
                   return (
                     <Nav
                       key={item.id}

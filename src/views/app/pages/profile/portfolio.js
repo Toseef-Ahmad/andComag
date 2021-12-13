@@ -25,67 +25,69 @@ const ProfilePortfolio = ({ match }) => {
   const [user, setUser] = useState([]);
   const [userGroups, setUserGroups] = useState([])
   const [groupData, setGroupData] = useState({})
-  
+  const [myGroups, setMyGroups] = useState([]);
+
   useEffect(() => {
     async function fetchData() {
       setUserCode(userCode);
       let setGroup = [];
-      database.ref(`/users/${userCode}`).on('value', (snapshot) => {
-        console.log(snapshot.val(), ' value from snapshot')
-        const dataRes = snapshot.val();
-        console.log(dataRes, 'this is object');
+      database.ref(`/users/${userCode}`).on('value', async (snapshot) => {
+
+        const dataRes = await snapshot.val();
+
         setUser(dataRes.info);
         setGroup = dataRes.groups;
-        console.log(setGroup, 'Groups data')
         setGroupData(() => {
           return setGroup
         })
       });
-    
     }
     fetchData();
   }, []);
 
   const setRoleInGroups = async () => {
-   
     const groupsInfo = [];
     const groupsData = [];
     Object.keys(groupData).forEach(function eachKey(item) {
       // userData.push(dataRes[item].info);
       // let groupInfoData = {};  
-
       database.ref(`/groups/${item}`).on('value', async (groupSnapshot) => {
-
         const singleGroupData = await groupSnapshot.val();
-        // const role = getUserInfo(groupData.users)
-        // console.log(singleGroupData.users);
-        //  = role !== undefined ? role : 'publisher';
+
         Object.keys(singleGroupData.users).forEach(function eachKey1(group) {
           if (singleGroupData.users[group].uid === userCode) {
             singleGroupData.info.role = singleGroupData.users[group].role ? singleGroupData.users[group].role : 'publisher'
-            setUserGroups([...userGroups, singleGroupData.info])
+            // console.log(singleGroupData.info);
+            setUserGroups([...userGroups, singleGroupData.info]);
+            // groupsInfo.push(singleGroupData?.info);
           }
         })
-        // console.log(singleGroupData?.info);
+
         groupsInfo.push(singleGroupData?.info);
-        // setUserGroups([...userGroups, groupsInfo])
 
-      })
-      
-      // groupsData.push(groupData[item]);
-
+      });
     });
 
     setGroups(groupsData);
     setUserGroups(() => groupsInfo);
-    setMyGroups(() => [...groupsInfo]);
-    // return groupsInfo;
+    // console.log(groupsInfo.length, ' groupInfo')
+
   }
 
   useEffect(() => {
-    setRoleInGroups();
-    console.log(groupData, ' groupData')
+    // setRoleInGroups();
+    if (Object.keys(groupData).length > 1) {
+      Object.keys(groupData).map((item) => {
+        database.ref(`/groups/${item}`).on('value', (info) => {
+          setMyGroups((current) => [...current, info.val().info])
+        })
+      })
+    }
   }, [groupData])
+
+  useEffect(() => {
+    console.log(myGroups, ' my Groups')
+  })
 
   return (
     <>
@@ -169,48 +171,46 @@ const ProfilePortfolio = ({ match }) => {
 
               <Colxx xxs="12" lg="8" className="mb-4 col-right">
                 <Row>
-                  {isLoaded &&
-                    userGroups.map((info) => {
-
-                      return (
+                  {myGroups.map((info) => {
+                    return (
                         <Colxx
-                          xxs="12"
-                          lg="6"
-                          xl="4"
-                          className="mb-4"
-                          key={`product_${info.groupCode}`}
-                        > {console.log({ userGroups })}
+                            xxs="12"
+                            lg="6"
+                            xl="4"
+                            className="mb-4"
+                            key={`product_${info.groupCode}`}
+                        > {console.log(info.groupCode)}
                           <Card>
                             <div className="position-relative">
                               <NavLink
-                                to="#"
-                                location={{}}
-                                className="w-40 w-sm-100"
+                                  to="#"
+                                  location={{}}
+                                  className="w-40 w-sm-100"
                               >
                                 <CardImg
-                                  top
-                                  alt={info.title}
-                                  src={
-                                    info?.photoURL ||
-                                    '/assets/img/profiles/1.jpg'
-                                  }
+                                    top
+                                    alt={info.title}
+                                    src={
+                                      info?.photoURL ||
+                                      '/assets/img/profiles/1.jpg'
+                                    }
                                 />
                               </NavLink>
                             </div>
                             <CardBody>
                               <NavLink
-                                to="#"
-                                location={{}}
-                                className="w-40 w-sm-100"
+                                  to="#"
+                                  location={{}}
+                                  className="w-40 w-sm-100"
                               >
                                 <CardSubtitle>{info.name}</CardSubtitle>
                               </NavLink>
                               <CardText className="text-muted text-small mb-0 font-weight-light">
                                 Status:{' '}
                                 {info.subscriptionStatus
-                                  ? 'Active'
-                                  : 'Not Active'}{' '}
-                                <br />
+                                    ? 'Active'
+                                    : 'Not Active'}{' '}
+                                <br/>
                                 Role : {info.role}
                               </CardText>
 
@@ -220,8 +220,9 @@ const ProfilePortfolio = ({ match }) => {
                             </CardBody>
                           </Card>
                         </Colxx>
-                      );
-                    })}
+                    );
+                  })
+                  }
                 </Row>
               </Colxx>
             </Row>

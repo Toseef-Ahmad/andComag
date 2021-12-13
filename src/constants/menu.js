@@ -5,7 +5,8 @@ const data = [
     id: 'dashboards',
     icon: 'iconsminds-shop-4',
     label: 'menu.content',
-    to: `${adminRoot}/dashboards/default`,
+    // to: `${adminRoot}/dashboards/default`,
+    to: `${adminRoot}/dashboards`
     // roles: [UserRole.Admin, UserRole.Editor],
   },
   {
@@ -13,21 +14,25 @@ const data = [
     icon: 'iconsminds-box-with-folders',
     label: 'menu.menu',
     to: `${adminRoot}/ui/forms/pending`,
+    // to: `${adminRoot}/magazines/pending`,
     subs: [
       {
         id: 'ui-forms',
         label: 'Family',
-        to: `${adminRoot}/ui/forms/pending`,
+        // to: `${adminRoot}/ui/forms/pending`,
+        to: `${adminRoot}/magazines/pending`,
         subs: [
           {
             icon: 'simple-icon-logout',
             label: 'Pending',
-            to: `${adminRoot}/ui/forms/pending`,
+            // to: `${adminRoot}/ui/forms/pending`,
+            to: `${adminRoot}/magazines/pending`
           },
           {
             icon: 'simple-icon-layers',
             label: 'Complete',
-            to: `${adminRoot}/ui/forms/layouts`,
+            // to: `${adminRoot}/ui/forms/layouts`,
+            to: `${adminRoot}/magazines/completed`
           },
         ],
       },
@@ -39,7 +44,8 @@ const data = [
           {
             icon: 'iconsminds-photo',
             label: 'Complete',
-            to: `${adminRoot}/ui/forms/nursingcomplete`,
+            // to: `${adminRoot}/ui/forms/nursingcomplete`,
+            to: `${adminRoot}/magazines/nursing's/completed`
           },
         ],
       },
@@ -50,14 +56,16 @@ const data = [
     id: 'groups',
     icon: 'iconsminds-cinema',
     label: 'menu.cards',
-    to: `${adminRoot}/pages/miscellaneous/knowledge-base`,
+    // to: `${adminRoot}/pages/miscellaneous/knowledge-base`,
+    to: `${adminRoot}/groups`
   },
 
   {
     id: 'users',
     icon: 'iconsminds-male-female',
     label: 'menu.data-list',
-    to: `${adminRoot}/pages/product/data-list`,
+    // to: `${adminRoot}/pages/product/data-list`,
+    to: `${adminRoot}/users`
   },
 
   {
@@ -69,7 +77,8 @@ const data = [
       {
         icon: 'simple-icon-user-following',
         label: 'Admins Management',
-        to: `${adminRoot}/blank-page`,
+        // to: `${adminRoot}/blank-page`,
+        to: `${adminRoot}/settings/admin`,
         subs: [
           {
             icon: 'simple-icon-user-following',
@@ -86,12 +95,14 @@ const data = [
           {
             icon: 'simple-icon-notebook',
             label: 'Fun facts',
-            to: `${adminRoot}/pages/miscellaneous/fun-facts`,
+            // to: `${adminRoot}/pages/miscellaneous/fun-facts`,
+            to: `${adminRoot}/settings/fun-facts`,
           },
           {
             icon: 'simple-icon-puzzle',
             label: 'Cover page',
-            to: `${adminRoot}/ui/forms/components`,
+            // to: `${adminRoot}/ui/forms/components`,
+            to: `${adminRoot}/settings/cover-page`
           },
         ],
       },

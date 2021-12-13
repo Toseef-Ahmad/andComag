@@ -92,7 +92,7 @@ const KnowledgeBase = ({ match }) => {
 
   return (
     <>
-    <h1>fun-facts component in miscellaneous directory</h1>
+
       <Row>
         <Colxx xxs="12">
           <Breadcrumb heading="Fun Facts" match={match} />

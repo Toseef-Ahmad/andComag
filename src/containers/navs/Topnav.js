@@ -210,7 +210,7 @@ const TopNav = ({
             menuButtonClick(e, menuClickCount, containerClassnames)
           }
         >
-          <MenuIcon />  '   TopNav.js'
+          <MenuIcon />
         </NavLink>
         <NavLink
           to="#"

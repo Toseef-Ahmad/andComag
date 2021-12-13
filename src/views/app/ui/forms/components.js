@@ -14,61 +14,61 @@ import TagsInputExample from 'containers/forms/TagsInputExample';
 import SwitchExamples from 'containers/forms/SwitchExamples';
 import SliderExamples from 'containers/forms/SliderExamples';
 import RatingExamples from 'containers/forms/RatingExamples';
+import DisplayCoverPhotos from './DisplayCoverImages';
 
 const ComponentsUi = ({ match }) => {
   const dropzone = useRef();
   return (
     <>
-    <h1>components component from ui/forms/components</h1>
-      <Row>
-        <Colxx xxs="12">
-          <Breadcrumb heading="menu.form-components" match={match} />
-          <Separator className="mb-5" />
-        </Colxx>
-      </Row>
-      <Row className="mb-4">
-        <Colxx xxs="12">
-          <Card>
-            <CardBody>
-              <CardTitle>
-                <IntlMessages id="form-components.custom-inputs" />
-              </CardTitle>
-              <CustomInputExample />
-            </CardBody>
-          </Card>
-        </Colxx>
-      </Row>
+      {/*<Row>*/}
+      {/*  <Colxx xxs="12">*/}
+      {/*    <Breadcrumb heading="menu.form-components" match={match} />*/}
+      {/*    <Separator className="mb-5" />*/}
+      {/*  </Colxx>*/}
+      {/*</Row>*/}
+      {/*<Row className="mb-4">*/}
+      {/*  <Colxx xxs="12">*/}
+      {/*    <Card>*/}
+      {/*      <CardBody>*/}
+      {/*        <CardTitle>*/}
+      {/*          <IntlMessages id="form-components.custom-inputs" />*/}
+      {/*        </CardTitle>*/}
+      {/*        <CustomInputExample />*/}
+      {/*      </CardBody>*/}
+      {/*    </Card>*/}
+      {/*  </Colxx>*/}
+      {/*</Row>*/}
 
-      <Row className="mb-4">
-        <Colxx xxs="12">
-          <Card>
-            <CardBody>
-              <CardTitle>
-                <IntlMessages id="form-components.react-select" />
-              </CardTitle>
-              <ReactSelectExample />
-            </CardBody>
-          </Card>
-        </Colxx>
-      </Row>
+      {/*<Row className="mb-4">*/}
+      {/*  <Colxx xxs="12">*/}
+      {/*    <Card>*/}
+      {/*      <CardBody>*/}
+      {/*        <CardTitle>*/}
+      {/*          <IntlMessages id="form-components.react-select" />*/}
+      {/*        </CardTitle>*/}
+      {/*        <ReactSelectExample />*/}
+      {/*      </CardBody>*/}
+      {/*    </Card>*/}
+      {/*  </Colxx>*/}
+      {/*</Row>*/}
 
-      <Row className="mb-4">
-        <Colxx xxs="12">
-          <Card>
-            <CardBody>
-              <CardTitle>
-                <IntlMessages id="form-components.react-autosuggest" />
-              </CardTitle>
-              <Row className="mb-4">
-                <Colxx xxs="12" sm="6">
-                  <ReactAutoSugegstExample />
-                </Colxx>
-              </Row>
-            </CardBody>
-          </Card>
-        </Colxx>
-      </Row>
-      <DatePickerExamples />
+      {/*<Row className="mb-4">*/}
+      {/*  <Colxx xxs="12">*/}
+      {/*    <Card>*/}
+      {/*      <CardBody>*/}
+      {/*        <CardTitle>*/}
+      {/*          <IntlMessages id="form-components.react-autosuggest" />*/}
+      {/*        </CardTitle>*/}
+      {/*        <Row className="mb-4">*/}
+      {/*          <Colxx xxs="12" sm="6">*/}
+      {/*            <ReactAutoSugegstExample />*/}
+      {/*          </Colxx>*/}
+      {/*        </Row>*/}
+      {/*      </CardBody>*/}
+      {/*    </Card>*/}
+      {/*  </Colxx>*/}
+      {/*</Row>*/}
+      {/* <DatePickerExamples /> */}
       <Row className="mb-4">
         <Colxx xxs="12">
           <Card>
@@ -81,51 +81,51 @@ const ComponentsUi = ({ match }) => {
           </Card>
         </Colxx>
       </Row>
-
       <Row className="mb-4">
         <Colxx xxs="12">
           <Card>
             <CardBody>
               <CardTitle>
-                <IntlMessages id="form-components.tags" />
+                <IntlMessages id="Covor Photos" />
               </CardTitle>
-              <TagsInputExample />
+              {/* <TagsInputExample /> */}
+              <DisplayCoverPhotos />
             </CardBody>
           </Card>
         </Colxx>
       </Row>
 
-      <Row className="mb-4">
-        <Colxx xxs="12">
-          <SwitchExamples />
-        </Colxx>
-      </Row>
+      {/*<Row className="mb-4">*/}
+      {/*  <Colxx xxs="12">*/}
+      {/*    <SwitchExamples />*/}
+      {/*  </Colxx>*/}
+      {/*</Row>*/}
 
-      <Row className="mb-4">
-        <Colxx xxs="12">
-          <Card>
-            <CardBody>
-              <CardTitle>
-                <IntlMessages id="form-components.slider" />
-              </CardTitle>
-              <SliderExamples />
-            </CardBody>
-          </Card>
-        </Colxx>
-      </Row>
+      {/*<Row className="mb-4">*/}
+      {/*  <Colxx xxs="12">*/}
+      {/*    <Card>*/}
+      {/*      <CardBody>*/}
+      {/*        <CardTitle>*/}
+      {/*          <IntlMessages id="form-components.slider" />*/}
+      {/*        </CardTitle>*/}
+      {/*        <SliderExamples />*/}
+      {/*      </CardBody>*/}
+      {/*    </Card>*/}
+      {/*  </Colxx>*/}
+      {/*</Row>*/}
 
-      <Row className="mb-4">
-        <Colxx xxs="12">
-          <Card>
-            <CardBody>
-              <CardTitle>
-                <IntlMessages id="form-components.rating" />
-              </CardTitle>
-              <RatingExamples />
-            </CardBody>
-          </Card>
-        </Colxx>
-      </Row>
+      {/*<Row className="mb-4">*/}
+      {/*  <Colxx xxs="12">*/}
+      {/*    <Card>*/}
+      {/*      <CardBody>*/}
+      {/*        <CardTitle>*/}
+      {/*          <IntlMessages id="form-components.rating" />*/}
+      {/*        </CardTitle>*/}
+      {/*        <RatingExamples />*/}
+      {/*      </CardBody>*/}
+      {/*    </Card>*/}
+      {/*  </Colxx>*/}
+      {/*</Row>*/}
     </>
   );
 };

@@ -179,7 +179,6 @@ const DataListPages = ({ match }) => {
     <div className="loading" />
   ) : (
     <>
-    <h1>blank-page component data is fetching from database</h1>
       <div className="disable-text-selection">
         <ListPageHeading
           heading="menu.blank-page"

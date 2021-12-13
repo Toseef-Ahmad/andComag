@@ -18,6 +18,7 @@ import {
 } from './constants/defaultValues';
 import { getDirection } from './helpers/Utils';
 import { ProtectedRoute } from './helpers/authHelper';
+import KnowledgeBase from "./views/app/pages/miscellaneous/knowledge-base";
 
 // const ViewHome = React.lazy(() =>
 //   import(/* webpackChunkName: "views" */ './views/home')
@@ -69,6 +70,7 @@ class App extends React.Component {
                     component={ViewApp}
                     roles={[UserRole.Admin, UserRole.Editor]}
                   />
+
                   <Route
                     path="/user"
                     render={(props) => <ViewUser {...props} />}
@@ -83,6 +85,8 @@ class App extends React.Component {
                     exact
                     render={(props) => <ViewUnauthorized {...props} />}
                   />
+                  {/* eslint-disable-next-line no-unused-vars */}
+
                    <Redirect exact from='/' to='user/login' />
                   {/* <Route
                     path="/"

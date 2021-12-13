@@ -193,7 +193,7 @@ const NursingComplete = ({ match }) => {
 
   return (
     <>
-    <h1>nursingcomplete component from ui/forms/nursingcomplete</h1>
+
       <Row>
         <Colxx xxs="12">
           <Breadcrumb heading="menu.faq" match={match} />

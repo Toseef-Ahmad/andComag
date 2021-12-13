@@ -15,9 +15,9 @@ const SortableStaticticsRow = (props) => {
 
 
   React.useEffect(() => {
-    console.log('rendring')
+   
     setAveragePostsPerUser(props.countAveragePostsPerUser);
-    console.log(averagePostsPerUser, ' average posts');
+   
   });
 
   React.useEffect(() => {
@@ -30,9 +30,9 @@ const SortableStaticticsRow = (props) => {
   })
 
   React.useEffect(() => {
-    console.log('rendring');
+    
     setAveragePostsPerUserCurrentYear(props.countAveragePostsPerUserCurrentYear);
-    console.log(averagePostsPerUserCurrentYear, ' averagge per year')
+   
   })
 
   const [state, setState] = useState([
@@ -225,7 +225,7 @@ const SortableStaticticsRow = (props) => {
 
   return (
     <>
-      <h1>SortableStaticRow component</h1>
+
       <ReactSortable
         list={state}
         setList={setState}

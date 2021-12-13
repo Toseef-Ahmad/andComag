@@ -284,14 +284,14 @@ const FormLayoutsUi = ({ match }) => {
                     <th scope="row">{index + 1}</th>
                     <td>
                       <Link
-                        to={`/app/pages/product/details?group=${item.group.groupCode}`}
+                        to={`/app/magazines/completed/details?group=${item.group.groupCode}`}
                       >
                         {item.group.groupCode}
                       </Link>
                     </td>
                     <td>
                       <Link
-                        to={`/app/pages/product/details?group=${item.group.groupCode}`}
+                        to={`/app/magazines/completed/details?group=${item.group.groupCode}`}
                       >
                         {item.group.name}
                       </Link>
