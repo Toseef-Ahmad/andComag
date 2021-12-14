@@ -9,6 +9,7 @@ const SortableStaticticsRow = (props) => {
 
   // its all about getting nursing home users average;
   const [average, setAverage] = useState(props.nursingHomeAverageAge);
+  const [usersAverageAge, setUsersAverageAge] = useState(props.usersAverageAge)
   const [averagePostsPerUser, setAveragePostsPerUser] = useState(props.countAveragePostsPerUser);
   const [averagePostsPerUserCurrentYear, setAveragePostsPerUserCurrentYear] = useState(props.countAveragePostsPerUserCurrentYear);
   const [averageGroupsPerUser, setAverageGroupsPerUser] = useState(props.countAverageGroupsPerUser);
@@ -21,7 +22,8 @@ const SortableStaticticsRow = (props) => {
   });
 
   React.useEffect(() => {
-    setAverage(props.nursingHomeAverageAge)
+    setAverage(props.nursingHomeAverageAge);
+    setUsersAverageAge(props.usersAverageAge);
   })
 
   React.useEffect(() => {
@@ -195,7 +197,7 @@ const SortableStaticticsRow = (props) => {
   const getAverage = (key) => {
     switch (key) {
       case 1:
-        return average;
+        return usersAverageAge;
       case 2:
         return averagePostsPerUser;
       case 3:
@@ -234,7 +236,7 @@ const SortableStaticticsRow = (props) => {
       >
         <Colxx xl="3" lg="6" className="mb-4">
           <RadialProgressCard
-            title=" SortableStaticsRow Pending"
+            title="Pending"
             percent={props.magazines.filter((elem) => !elem.active).length}
             isSortable
           />
@@ -321,8 +323,6 @@ const SortableStaticticsRow = (props) => {
       </ReactSortable>
 
       <h1>Nursing Home Groups:</h1>
-
-
       <ReactSortable
         list={nursing}
         setList={setNursing}

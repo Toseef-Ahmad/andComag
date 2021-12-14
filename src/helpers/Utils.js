@@ -176,7 +176,7 @@ export const setCurrentUser = (user) => {
   }
 };
 
-/// sorting table 
+/// sorting table
 const createObj = (address, arr, numberOrString = false) => {
   // console.log(address, ' address');
   Object.byString = function (o, s) {
@@ -323,7 +323,7 @@ export const calAverage = (tableObj) => {
     if (!checkedIdes.has(currentId)) {
       checkedIdes.add(currentId); // ["9zaw7"]
       for (let i = 0; i < tableObj.length; i++) {
-       
+
         if ('group' in tableObj[i] && tableObj[i].group.groupCode === currentId) {
 
           posts += tableObj[i].magazine.postsCount;
@@ -373,6 +373,8 @@ export const removeDuplicationTableRows = (arr) => {
 // its all about getting user age average in nursing home account
 
 export const getAverage = (groups) => {
+  // eslint-disable-next-line no-use-before-define
+  getAverageUsersAge(groups);
   let usersBirthDays = 0;
   let nursingHomeUsers = 0;
   const currentYear = new Date().getFullYear();
@@ -497,7 +499,7 @@ export const getAverageUserPerGroup = (groups) => {
       totalUsers += Object.keys(group.users).length;
     }
   }
-
+  console.log(totalUsers, '  total users...')
   // console.log((totalUsers / groups.length), ' its my');
   // // console.log(groups
   //   .map((elem) =>
@@ -507,3 +509,21 @@ export const getAverageUserPerGroup = (groups) => {
   // )
 }
 
+// its all about getting users average age
+export const getAverageUsersAge = (groups) => {
+
+  let usersBirthDays = 0;
+  let nursingHomeUsers = 0;
+  const currentYear = new Date().getFullYear();
+
+  for (let group of groups) {
+
+      for (let user in group.users) {
+        if (group.users[user].birthday) {
+          usersBirthDays += currentYear - new Date(group.users[user]?.birthday).getFullYear();
+          nursingHomeUsers++;
+        }
+    }
+  }
+  return Math.floor(usersBirthDays / nursingHomeUsers);
+}

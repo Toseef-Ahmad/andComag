@@ -7,7 +7,7 @@ import SortableStaticsRow from 'containers/dashboards/SortableStaticticsRow';
 // import QuickPost from 'containers/dashboards/QuickPost';
 // import BestSellers from 'containers/dashboards/BestSellers';
 import { database } from 'helpers/Firebase';
-import { getAverage } from 'helpers/Utils';
+import { getAverage, getAverageUsersAge } from 'helpers/Utils';
 import { getAveragePosts } from 'helpers/Utils';
 import { getAverageGroups } from 'helpers/Utils';
 import { getAveragePostsCurrentYear } from 'helpers/Utils';
@@ -26,7 +26,7 @@ const DashboardContent = ({ intl, match }) => {
   const [countAveragePostsPerUser, setCoutnAveragePostsPerUser] = useState(0);
   const [countAveragePostsPerUserCurrentYear, setCoutnAveragePostsPerUserCurrentYear] = useState(0);
   const [countNursinghomeSubscriber, setCountNursinghomeSubscriber] = useState(0);
-
+  const [usersAverageAge, setUsersAverageAge] = useState(0);
   const [countAverageGroupsPerUser, setCountAverageGroupsPerUser] = useState(0);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const DashboardContent = ({ intl, match }) => {
   useEffect(() => {
     if (groups.length > 0) {
       setNursingHomeAverageAge(getAverage(groups));
-      console.log('rendring average')
+      setUsersAverageAge(getAverageUsersAge(groups))
     }
 
   }, [groups])
@@ -119,6 +119,7 @@ const DashboardContent = ({ intl, match }) => {
               getFamilyActiveAccounts={getFamilyActiveAccounts}
               getFamilyClosedAccounts={getFamilyClosedAccounts}
               getAverageUserPerGroup={getAverageUserPerGroup}
+              usersAverageAge={usersAverageAge}
             />
           )}
         </Colxx>
